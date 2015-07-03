@@ -1,0 +1,34 @@
+group 'rootnext'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'ch.qos.logback:logback-classic:1.1.3'
+    compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+    compile 'javax.servlet:jstl:1.2'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+jettyRun {
+    contextPath = "demo"
+    httpPort = 8080
+}
+
+jettyRunWar {
+    contextPath = "demo"
+    httpPort = 8080
+}
