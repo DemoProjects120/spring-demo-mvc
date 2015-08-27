@@ -9,7 +9,7 @@
 
     <!-- For web context -->
     <servlet>
-        <servlet-name>hello-dispatcher</servlet-name>
+        <servlet-name>app-dispatcher</servlet-name>
         <servlet-class>
             org.springframework.web.servlet.DispatcherServlet
         </servlet-class>
@@ -21,7 +21,7 @@
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>hello-dispatcher</servlet-name>
+        <servlet-name>app-dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
@@ -31,10 +31,5 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/dispatcherServlet.xml</param-value>
-    </context-param>
 
 </web-app>

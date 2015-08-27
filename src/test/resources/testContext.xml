@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <import resource="file:src/main/webapp/WEB-INF/commonContext.xml"/>
+
+       <bean id="studentRepository" name="studentRepository" class="org.mockito.Mockito" factory-method="mock">
+              <constructor-arg value="com.rootnext.spring.demoapp.repositories.StudentRepository"/>
+       </bean>
+       <bean id="welcomeService" name="welcomeService" class="org.mockito.Mockito" factory-method="mock">
+              <constructor-arg value="com.rootnext.spring.demoapp.services.WelcomeService"/>
+       </bean>
+
+</beans>

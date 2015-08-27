@@ -1,5 +1,8 @@
 package com.rootnext.spring.demoapp.services;
 
+import com.rootnext.spring.demoapp.models.Student;
+import com.rootnext.spring.demoapp.repositories.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
