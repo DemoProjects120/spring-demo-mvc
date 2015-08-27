@@ -3,8 +3,6 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-       <import resource="file:src/main/webapp/WEB-INF/commonContext.xml"/>
-
        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
               <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
               <property name="url" value="jdbc:mysql://localhost:3306/spring_demo_app"/>
@@ -13,7 +11,7 @@
        </bean>
 
        <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-              <property name="persistenceUnitName" value="persistenceUnitTest"/>
+              <property name="persistenceUnitName" value="persistenceUnit"/>
               <property name="dataSource" ref="dataSource"/>
               <property name="packagesToScan" value="com.rootnext.spring.demoapp.models"/>
               <property name="jpaVendorAdapter">
@@ -31,19 +29,13 @@
                             <prop key="hibernate.show_sql">true</prop>
                             <prop key="hibernate.format_sql">true</prop>
                             <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                            <prop key="hibernate.ejb.entitymanager_factory_name">persistenceUnitDefaultApp</prop>
                      </props>
               </property>
        </bean>
 
        <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
               <property name="entityManagerFactory" ref="entityManagerFactory"/>
-       </bean>
-
-       <bean id="studentRepository" name="studentRepository" class="org.mockito.Mockito" factory-method="mock">
-              <constructor-arg value="com.rootnext.spring.demoapp.repositories.StudentRepository"/>
-       </bean>
-       <bean id="welcomeService" name="welcomeService" class="org.mockito.Mockito" factory-method="mock">
-              <constructor-arg value="com.rootnext.spring.demoapp.services.WelcomeService"/>
        </bean>
 
 </beans>

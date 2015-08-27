@@ -44,4 +44,10 @@ public class AppTest {
 //                .andExpect(MockMvcResultMatchers.jsonPath("name").value("Tutul"));
     }
 
+    @Test
+    public void testWelcomeController() throws Exception{
+        this.mockMvc.perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
 }
